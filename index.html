@@ -3,72 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clase de Bootstrap 5</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Mesa de Partes Virtual - Login</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body class="bg-light">
+<body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand text-info fw-bold" href="#">TecnoClass</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <header class="bg-primary text-white text-center py-5 shadow-sm">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Domina Bootstrap 5</h1>
-            <p class="lead">Crea sitios web responsivos y profesionales en minutos.</p>
-            <a href="#" class="btn btn-warning btn-lg fw-semibold mt-3">Empezar Ahora</a>
-        </div>
+    <header>
+        <h1>Instituto Superior Tecnológico</h1>
+        <p>Mesa de Partes Virtual - Módulo de Autenticación y Trámites</p>
     </header>
 
-    <main class="container my-5">
-        <div class="text-center mb-4">
-            <h2 class="h3 text-secondary">Características Destacadas</h2>
-            <hr class="w-25 mx-auto text-primary" style="height: 3px;">
-        </div>
-
-        <div class="row g-4">
-            <div class="col-12 col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <h3 class="card-title h5 text-primary fw-bold">Mobile-First</h3>
-                        <p class="card-text text-muted">Diseñado estratégicamente para optimizar la visualización en dispositivos móviles antes que en pantallas grandes.</p>
-                    </div>
-                </div>
+    <main class="container">
+        
+        <!-- SECCIÓN 1: LOGIN (CONDICIONALES IF/ELSE Y SWITCH) -->
+        <section id="seccionLogin" class="card">
+            <h2>Acceso al Sistema</h2>
+            <p>Ingresa tus credenciales para acceder a la Mesa de Partes. (Prueba con los usuarios: <strong>alumno</strong>, <strong>docente</strong> o <strong>admin</strong>. La contraseña para todos es <strong>1234</strong>).</p>
+            
+            <div class="form-group">
+                <label for="usuario">Usuario / Rol:</label>
+                <input type="text" id="usuario" placeholder="Ej. alumno, docente, admin">
             </div>
 
-            <div class="col-12 col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <h3 class="card-title h5 text-success fw-bold">Sistema de Rejilla</h3>
-                        <p class="card-text text-muted">Usa un potente sistema de columnas basado en Flexbox para distribuir el contenido de forma exacta y proporcional.</p>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="********">
             </div>
-            <div class="col-12 col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <h3 class="card-title h5 text-danger fw-bold">Componentes Flexibles</h3>
-                        <p class="card-text text-muted">Ahorra horas de código utilizando elementos listos como botones, alertas, formularios y barras de navegación.</p>
-                    </div>
-                </div>
+
+            <button onclick="iniciarSesion()">Ingresar al Sistema</button>
+
+            <div id="errorLogin" class="text-danger" style="margin-top: 15px; display: none;">
+                 Usuario o contraseña incorrectos. Inténtalo de nuevo.
             </div>
-        </div>
+        </section>
+
+        <!-- SECCIÓN 2: MESA DE PARTES (BUCLES FOR Y WHILE) -->
+        <!-- Esta sección estará oculta al inicio (display: none) y se mostrará solo tras un login exitoso -->
+        <section id="seccionPanel" class="card" style="display: none;">
+            <h2> Panel de Trámites: <span id="nombreRol" class="text-primary"></span></h2>
+            <p>Bienvenido al sistema. Aquí puedes ver el historial de documentos y simular la carga masiva de expedientes pendientes.</p>
+            
+            <div class="form-group">
+                <label for="cantidadTramites">¿Cuántos trámites anteriores deseas auditar? (Max. 10):</label>
+                <input type="number" id="cantidadTramites" min="1" max="10" placeholder="Ej. 4">
+            </div>
+
+            <div class="btn-group">
+                <button onclick="mostrarHistorialFor()" class="btn-secondary">Ver Historial (Bucle FOR)</button>
+                <button onclick="procesarPendientesWhile()" class="btn-secondary">Procesar Pendientes (Bucle WHILE)</button>
+            </div>
+
+            <div id="resultadoTramites" class="resultado">
+                Selecciona una opción para procesar los datos de la mesa de partes.
+            </div>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #e2e8f0;">
+            <button onclick="cerrarSesion()" class="btn-danger">Cerrar Sesión</button>
+        </section>
+
     </main>
-    <footer class="bg-dark text-white-50 text-center py-3 mt-5">
-        <p class="mb-0">&copy; 2026 TecnoClass. Diseñado con Bootstrap 5.</p>
+
+    <footer>
+        <p>&copy; 2026 Instituto Tecnológico - Mesa de Partes Virtual</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--CONEXION JAVA SCRIPT-->> 
+    <script src="js/app.js"></script>
 </body>
 </html>
