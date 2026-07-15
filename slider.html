@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Automático - Bootstrap 5</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        /* Estilos personalizados para asegurar la uniformidad de las imágenes */
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover; /* Recorta la imagen proporcionalmente para que no se estire */
+        }
+        
+        /* Fondo semitransparente opcional para leer mejor los textos sobre las imágenes */
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4 font-monospace fw-bold text-dark">Slider con Movimiento Automático</h2>
+        
+        <div id="sliderAutomatico" class="carousel slide shadow-lg rounded" data-bs-ride="carousel" data-bs-interval="2500" data-bs-pause="false">
+            
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#sliderAutomatico" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#sliderAutomatico" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#sliderAutomatico" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner rounded">
+                
+                <div class="carousel-item active">
+                    <img src="https://picsum.photos/id/10/1200/500" class="d-block w-100" alt="Primera diapositiva">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Primera Diapositiva</h5>
+                        <p>Este slider cambia automáticamente sin necesidad de interactuar con él.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/22/1200/500" class="d-block w-100" alt="Segunda diapositiva">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Segunda Diapositiva</h5>
+                        <p>Utiliza las herramientas nativas de Bootstrap 5 basadas en JavaScript.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/29/1200/500" class="d-block w-100" alt="Tercera diapositiva">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Tercera Diapositiva</h5>
+                        <p>Diseño completamente adaptable (responsive) para cualquier pantalla.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#sliderAutomatico" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#sliderAutomatico" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script></body>
+</html>

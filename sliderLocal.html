@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secuencia de Imágenes Automatizada</title>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Ajustes de optimización para la secuencia de imágenes */
+        .contenedor-secuencia {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .carousel-item img {
+            height: 480px;
+            object-fit: cover; /* Evita distorsiones recortando proporcionalmente */
+            filter: brightness(90%); /* Ligera mejora de contraste para los textos */
+        }
+        
+        /* Estilo personalizado para los textos descriptivos inferiores */
+        .carousel-caption-custom {
+            background: rgba(33, 37, 41, 0.75); /* Fondo oscuro semitransparente */
+            border-radius: 8px;
+            padding: 12px 20px;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+
+    <header class="py-4 text-center bg-white shadow-sm mb-5">
+        <h1 class="h3 fw-bold text-primary text-uppercase font-monospace m-0">
+            Control de Secuencia de Imágenes
+        </h1>
+    </header>
+
+    <main class="container">
+        <div class="contenedor-secuencia">
+            
+            <div id="secuenciaImagenes" class="carousel slide shadow rounded-3 overflow-hidden" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
+                
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#secuenciaImagenes" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
+                    <button type="button" data-bs-target="#secuenciaImagenes" data-bs-slide-to="1" aria-label="Imagen 2"></button>
+                    <button type="button" data-bs-target="#secuenciaImagenes" data-bs-slide-to="2" aria-label="Imagen 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    
+                    <div class="carousel-item active">
+                        <img src="img/imagen1.png" class="d-block w-100" alt="Primera fase de la secuencia">
+                        <div class="carousel-caption d-none d-md-block text-start start-50 translate-middle-x w-75">
+                            <div class="carousel-caption-custom">
+                                <h5 class="fw-bold">Fase Inicial u Origen</h5>
+                                <p class="small mb-0">Carga inicial de recursos multimedia configurados localmente desde el directorio del proyecto.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="img/imagen2.jpg" class="d-block w-100" alt="Segunda fase de la secuencia">
+                        <div class="carousel-caption d-none d-md-block text-start start-50 translate-middle-x w-75">
+                            <div class="carousel-caption-custom">
+                                <h5 class="fw-bold">Fase de Transición</h5>
+                                <p class="small mb-0">El motor de Bootstrap ejecuta el desplazamiento lateral controlado por eventos asíncronos nativos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="img/imagen3.jpg" class="d-block w-100" alt="Tercera fase de la secuencia">
+                        <div class="carousel-caption d-none d-md-block text-start start-50 translate-middle-x w-75">
+                            <div class="carousel-caption-custom">
+                                <h5 class="fw-bold">Fase de Bucle</h5>
+                                <p class="small mb-0">Al alcanzar el último nodo de la lista, el sistema reinicia la secuencia de forma continua.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#secuenciaImagenes" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#secuenciaImagenes" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+
+            </div>
+            
+            <div class="card mt-4 border-0 shadow-sm">
+                <div class="card-body">
+                    <p class="card-text text-muted small mb-0">
+                        <strong>Estado del Entorno:</strong> Ejecución en servidor de desarrollo local. Las dependencias funcionales CSS y JS se cargan de forma nativa desde rutas relativas para garantizar la operatividad offline.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
